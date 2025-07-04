@@ -1,0 +1,25 @@
+# Best quality configuration based on initial testing
+name: "best_quality"
+description: "Optimized for lowest perplexity"
+
+lora:
+  r: 32
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj  
+    - v_proj
+    - o_proj
+
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  num_epochs: 3
+  learning_rate: 3e-4
+  warmup_steps: 100
+
+dataset:
+  name: "alpaca"
+  max_length: 512
+  num_samples: 1000  # For quick testing
