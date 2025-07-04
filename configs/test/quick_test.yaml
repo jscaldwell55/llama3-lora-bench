@@ -1,0 +1,23 @@
+name: "quick_test"
+description: "Quick test configuration"
+
+lora:
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.1
+  target_modules:
+    - q_proj
+    - v_proj
+
+training:
+  batch_size: 2
+  gradient_accumulation_steps: 2
+  num_epochs: 1
+  learning_rate: 3e-4
+  warmup_steps: 10
+
+dataset:
+  name: "tatsu-lab/alpaca"
+  max_samples: 100
+
+use_wandb: false

@@ -1,0 +1,16 @@
+dataset:
+  max_samples: 500
+lora:
+  lora_alpha: 32
+  lora_dropout: 0.05
+  r: 16
+  target_modules:
+  - q_proj
+  - v_proj
+name: medium_r16
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 2
+  learning_rate: 3e-4
+  num_epochs: 1
+  warmup_steps: 20

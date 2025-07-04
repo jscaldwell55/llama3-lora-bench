@@ -1,0 +1,41 @@
+name: "comprehensive_test"
+description: "Test multiple LoRA configurations"
+
+configurations:
+  - name: "tiny_r4"
+    lora:
+      r: 4
+      lora_alpha: 8
+      lora_dropout: 0.05
+      target_modules: ["q_proj", "v_proj"]
+  
+  - name: "small_r8"
+    lora:
+      r: 8
+      lora_alpha: 16
+      lora_dropout: 0.05
+      target_modules: ["q_proj", "v_proj"]
+  
+  - name: "medium_r16"
+    lora:
+      r: 16
+      lora_alpha: 32
+      lora_dropout: 0.05
+      target_modules: ["q_proj", "v_proj"]
+      
+  - name: "large_r32"
+    lora:
+      r: 32
+      lora_alpha: 32
+      lora_dropout: 0.05
+      target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]
+
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 2
+  num_epochs: 1
+  learning_rate: 3e-4
+  warmup_steps: 20
+
+dataset:
+  max_samples: 500
